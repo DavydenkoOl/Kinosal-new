@@ -40,7 +40,7 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("../images/background4.jpg");
+    background-image: url("../images/background8.jpg");
     border-radius: 20px;
     padding:10px;
 }
@@ -71,4 +71,10 @@ body {
     border-radius: 10px;
     box-shadow: 8px 8px 8px rgba(155, 89, 186, 0.5);
     padding: 15px 0 0 15px;
+}
+#details_div {
+    width: 800px;
+    height: 600px;
+    border: 2px #cc1b29 solid;
+    padding:20px;
 }

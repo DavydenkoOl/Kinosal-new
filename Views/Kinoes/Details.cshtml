@@ -4,46 +4,50 @@
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<h1 style="color: #240e67">О фильме</h1>
 
-<h1>Details</h1>
-
-<div>
-    <h4>Kino</h4>
-    <hr />
+<div id="details_div">
+    
+    
     <dl class="row">
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Title)
+            <h5>Название:</h5>
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Title)
+            <h4>@Html.DisplayFor(model => model.Title)</h4>
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Genre)
+            <h5>Жанр:</h5>
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Genre)
+            <h4>@Html.DisplayFor(model => model.Genre)</h4>
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Director)
+            <h5>Режисёр:</h5>
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Director)
+            <h4>@Html.DisplayFor(model => model.Director)</h4>
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Poster)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Poster)
-        </dd>
+        
+        
     </dl>
+    <div style="display: flex; justify-content: space-between;">
+        <img src="/images/@Html.DisplayFor(model => model.Poster)" style="width:250px; height:350px; border-radius: 20px" />
+        <div style="margin:15px">
+            <h4>
+                Кратко о сюжете:
+            </h4>
+            <h4>
+                @Html.DisplayFor(model => model.Description)
+            </h4>
+        </div>
+        
+    </div>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+<div style="display: flex; justify-content: space-between;">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" style="width: 50%">Редактировать</a>
+    <a asp-action="Index" style="width: 5%" >Назад</a>
 </div>

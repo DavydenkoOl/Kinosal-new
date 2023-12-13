@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<h1>Кинозал</h1>
+<h1 style="color: #240e67">Кинчики</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -31,7 +31,7 @@
                     Режисёр: @Html.DisplayFor(modelItem => item.Director)
                 </h5>
                 <h6>
-                   О фильме:  @Html.DisplayFor(modelItem => item.Description)
+                   О фильме: ....
                 </h6>
                 <a asp-action="Details" asp-route-id="@item.Id" style="margin-top: 20px">Подробней</a>
             </div>
