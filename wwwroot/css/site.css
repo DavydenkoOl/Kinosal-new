@@ -1,0 +1,74 @@
+html {
+    font-size: 14px;
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    font-family: 'Philosopher', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh;*/
+    background-image: url("../images/background5.jpg");
+    background-size: cover;
+}
+#div_body {
+    width: 1000px;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("../images/background4.jpg");
+    border-radius: 20px;
+    padding:10px;
+}
+#div_film {
+    background-color: #ece1f0;
+    width: 800px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 8px rgba(82, 82, 89, 0.5);
+}
+#film_poster {
+    margin: 10px 40px 10px 10px;
+    /*border: 2px #9623e8 solid;*/
+    width: 250px;
+    height: 350px;
+    border-radius: 20px;
+    box-shadow: 8px 8px 8px rgba(155, 89, 186, 0.5);
+}
+#film_title {
+    margin: 10px 10px 10px 30px;
+    /*border: 2px #cc1b29 solid;*/
+    width: 450px;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 8px 8px 8px rgba(155, 89, 186, 0.5);
+    padding: 15px 0 0 15px;
+}

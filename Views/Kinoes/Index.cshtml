@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Kinosal.Models.Kino>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<h1>Кинозал</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div id="div_body" >
+    @foreach (var item in Model)
+    {
+        <div id="div_film">
+            <div id="film_poster">
+                <img src="images/@Html.DisplayFor(modelItem => item.Poster)" style="width:250px; height:350px; border-radius: 20px" />
+            </div>
+            <div id="film_title">
+                <h4 style="font-weight:600">
+                    Название :  @Html.DisplayFor(modelItem => item.Title)
+                    
+                </h4>
+                <h5>
+                   жанр:  @Html.DisplayFor(modelItem => item.Genre)
+                </h5>
+                <h5>
+                    Режисёр: @Html.DisplayFor(modelItem => item.Director)
+                </h5>
+                <h6>
+                   О фильме:  @Html.DisplayFor(modelItem => item.Description)
+                </h6>
+                <a asp-action="Details" asp-route-id="@item.Id" style="margin-top: 20px">Подробней</a>
+            </div>
+            
+        </div> 
+        
+    }
+</div>
+
+      
+
+               
+ 
