@@ -7,47 +7,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<h1 style="color: #240e67">О фильме</h1>
+<h1 style="margin:auto;color: #240e67; width: 800px">О фильме</h1>
 
 <div id="details_div">
     
     
-    <dl class="row">
+    <dl class="row" style="margin-left:40px">
         <dt class = "col-sm-2">
             <h5>Название:</h5>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10" style="font-style:italic">
             <h4>@Html.DisplayFor(model => model.Title)</h4>
         </dd>
         <dt class = "col-sm-2">
             <h5>Жанр:</h5>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10" style="font-style:italic">
             <h4>@Html.DisplayFor(model => model.Genre)</h4>
         </dd>
         <dt class = "col-sm-2">
             <h5>Режисёр:</h5>
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10" style="font-style:italic">
             <h4>@Html.DisplayFor(model => model.Director)</h4>
         </dd>
         
         
     </dl>
-    <div style="display: flex; justify-content: space-between;">
+    <div style="display: flex; justify-content: space-between;margin-top:40px">
         <img src="/images/@Html.DisplayFor(model => model.Poster)" style="width:250px; height:350px; border-radius: 20px" />
         <div style="margin:15px">
-            <h4>
-                Кратко о сюжете:
-            </h4>
-            <h4>
+            <h5>
+                Краткое описание:
+            </h5>
+            <h4 style="font-style:italic">
                 @Html.DisplayFor(model => model.Description)
             </h4>
         </div>
         
     </div>
 </div>
-<div style="display: flex; justify-content: space-between;">
-    <a asp-action="Edit" asp-route-id="@Model?.Id" style="width: 50%">Редактировать</a>
-    <a asp-action="Index" style="width: 5%" >Назад</a>
+<div style="margin:auto; width: 800px; padding: 5px;display: flex; justify-content: space-between;background-color:#240e67; border-radius: 10px;margin-top:25px;height:45px; box-shadow: 4px 8px 8px rgba(124,9, 186, 0.5);">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" style="width: 30%; color: #FF7373; text-decoration: none;font-size:20px;font-style:italic; font-weight:800">Редактировать</a>
+    <a asp-action="Delete" asp-route-id="@Model?.Id" style="width: 80% ; color: #FF7373; text-decoration: none;font-size:20px;font-style:italic; font-weight:800">Удалить</a>
+    <a asp-action="Index" style="width: 8% ; color: #FF7373; text-decoration: none;font-size:20px;font-style:italic; font-weight:800">Назад</a>
 </div>

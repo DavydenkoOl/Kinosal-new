@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Kinosal.Models;
+using Newtonsoft.Json.Linq;
+using System.Drawing;
 
 namespace Кинозал__cr.det.upd.del._.Controllers
 {
@@ -13,9 +15,12 @@ namespace Кинозал__cr.det.upd.del._.Controllers
     {
         private readonly KinoContext _context;
 
-        public KinoesController(KinoContext context)
+        // IWebHostEnvironment предоставляет информацию об окружении, в котором запущено приложение
+        IWebHostEnvironment _appEnvironment;
+        public KinoesController(KinoContext context, IWebHostEnvironment appEnvironment)
         {
             _context = context;
+            _appEnvironment = appEnvironment;
         }
 
         // GET: Kinoes
@@ -53,8 +58,34 @@ namespace Кинозал__cr.det.upd.del._.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Director,Description,Poster")] Kino kino)
+        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Director,Description,Poster")] Kino kino, IFormFile? uploadedFile)
         {
+            var title = _context.Kinos.Select(m => m.Title).ToList();
+            var genre = _context.Kinos.Select(m => m.Genre).ToList();
+            var director = _context.Kinos.Select(m => m.Director).ToList();
+            if (uploadedFile != null)
+            {
+                // Путь к папке Files
+                string path = "/images/" + uploadedFile.FileName; // имя файла
+
+                // Сохраняем файл в папку images в каталоге wwwroot
+                // Для получения полного пути к каталогу wwwroot
+                // применяется свойство WebRootPath объекта IWebHostEnvironment
+                using (var fileStream = new FileStream(_appEnvironment.WebRootPath + path, FileMode.Create))
+                {
+                    await uploadedFile.CopyToAsync(fileStream); // копируем файл в поток
+                }
+                
+                
+                   
+                
+                kino.Poster = uploadedFile.FileName;
+            }
+            if(title.Contains(kino.Title) && genre.Contains(kino.Genre) && director.Contains(kino.Director))
+            {
+                ModelState.AddModelError("", "Внимание!!! Совпадение добавляемого фильма по полям 'Название','Жанр','Редиссёр'!!! Этот фильм уже внесёт в каталог!!");
+            }
+           
             if (ModelState.IsValid)
             {
                 _context.Add(kino);
@@ -85,17 +116,25 @@ namespace Кинозал__cr.det.upd.del._.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Director,Description,Poster")] Kino kino)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Director,Description,Poster")] Kino kino, IFormFile? uploadedFile)
         {
             if (id != kino.Id)
             {
                 return NotFound();
             }
+            if (uploadedFile == null)
+                kino.Poster = (from p in _context.Kinos where p.Id == kino.Id select p.Poster).FirstOrDefault();
+
+            
+            else
+                kino.Poster = uploadedFile.FileName;
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    
+
                     _context.Update(kino);
                     await _context.SaveChangesAsync();
                 }
@@ -152,5 +191,7 @@ namespace Кинозал__cr.det.upd.del._.Controllers
         {
             return _context.Kinos.Any(e => e.Id == id);
         }
+
+        
     }
 }

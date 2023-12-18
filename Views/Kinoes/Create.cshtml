@@ -5,48 +5,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
 
-<h4>Kino</h4>
-<hr />
-<div class="row">
+<div style="margin:auto; width: 800px; padding: 5px; border-radius: 10px;height:45px;">
+    <h2 style="color: #FF7373; font-style:italic">Добавить фильм</h2>
+</div>
+@* <h4>Kino</h4> *@
+
+<div id="creat_div">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
+                <label style="color: #FF7373;font-style:italic; font-size:20px;font-weight:800">Название:</label>
+                <input asp-for="Title" class="form-control" style="background-color:#c7c7c7" />
                 <span asp-validation-for="Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Genre" class="control-label"></label>
-                <input asp-for="Genre" class="form-control" />
+                <label style="color: #FF7373;font-style:italic; font-size:20px;font-weight:800">Жанр:</label>
+                <input asp-for="Genre" class="form-control" style="background-color:#c7c7c7" />
                 <span asp-validation-for="Genre" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Director" class="control-label"></label>
-                <input asp-for="Director" class="form-control" />
+                <label style="color: #FF7373;font-style:italic; font-size:20px;font-weight:800">Режиссёр:</label>
+                <input asp-for="Director" class="form-control" style="background-color:#c7c7c7" />
                 <span asp-validation-for="Director" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
+                <label style="color: #FF7373;font-style:italic; font-size:20px;font-weight:800">Краткое описание:</label>
+                <input asp-for="Description" class="form-control" style="background-color:#c7c7c7" />
                 <span asp-validation-for="Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Poster" class="control-label"></label>
-                <input asp-for="Poster" class="form-control" />
-                <span asp-validation-for="Poster" class="text-danger"></span>
+                <label style="color: #FF7373;font-style:italic; font-size:20px;font-weight:800">Постер</label>
+                @* <input asp-for="Poster" class="form-control " style="background-color:#c7c7c7" />
+                <span asp-validation-for="Poster" class="text-danger"></span> *@
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+
+            <input type="file" name="uploadedFile" asp-for="Poster" style="color:red" />
+               
+           
+            <div class="form-group" style="margin-top:30px">
+                
+                <input type="submit" value="Добавить" class="btn btn-primary" style="background-color:#240e67; border: none " />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+<div style="margin:auto; width: 800px; padding: 5px;background-color:#240e67; border-radius: 10px;margin-top:25px;height:45px; box-shadow: 4px 8px 8px rgba(124,9, 186, 0.5);">
+    <a asp-action="Index" style="float: right; color: #FF7373; text-decoration: none;font-size:20px;font-style:italic; font-weight:800">Назад в галерею</a>
 </div>
 
 @section Scripts {

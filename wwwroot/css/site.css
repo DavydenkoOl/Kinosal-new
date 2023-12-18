@@ -1,9 +1,9 @@
 html {
     font-size: 14px;
-    display: flex;
-    /*flex-direction: column;*/
+    /*display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center;*/
 }
 
 @media (min-width: 768px) {
@@ -25,10 +25,10 @@ body {
     font-family: 'Philosopher', sans-serif;
     margin: 0;
     padding: 0;
-    display: flex;
+    /*display: flex;*/
     /*flex-direction: column;*/
-    justify-content: center;
-    align-items: center;
+    /*justify-content: center;
+    align-items: center;*/
     /* height: 100vh;*/
     background-image: url("../images/background5.jpg");
     background-size: cover;
@@ -40,12 +40,14 @@ body {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-image: url("../images/background8.jpg");
+    /*background-image: url("../images/background8.jpg");*/
+    background-color: #0a0a23;
     border-radius: 20px;
-    padding:10px;
+    padding:30px;
+    margin:auto;
 }
 #div_film {
-    background-color: #ece1f0;
+    background-color: #f5f5dc;
     width: 800px;
     height: 500px;
     display: flex;
@@ -61,7 +63,7 @@ body {
     width: 250px;
     height: 350px;
     border-radius: 20px;
-    box-shadow: 8px 8px 8px rgba(155, 89, 186, 0.5);
+    box-shadow: 8px 8px 8px rgba(184, 184, 173, 0.5);
 }
 #film_title {
     margin: 10px 10px 10px 30px;
@@ -69,12 +71,36 @@ body {
     width: 450px;
     height: 350px;
     border-radius: 10px;
-    box-shadow: 8px 8px 8px rgba(155, 89, 186, 0.5);
+    box-shadow: 8px 8px 8px rgba(217, 217, 211, 0.5);
     padding: 15px 0 0 15px;
 }
 #details_div {
     width: 800px;
     height: 600px;
-    border: 2px #cc1b29 solid;
+    border: 4px #cc1b29 solid;
     padding:20px;
+    margin:auto;
+}
+#creat_div {
+    width: 800px;
+    height: 600px;
+    border: 4px #cc1b29 solid;
+    padding: 20px;
+    margin: auto;
+}
+#delete_div {
+    width: 800px;
+    height: 600px;
+    border: 4px #cc1b29 solid;
+    padding: 20px;
+    margin: auto;
+    background-color: #0a0a23;
+    color:aliceblue;
+}
+#edit_div {
+    width: 800px;
+    height: 600px;
+    border: 4px #cc1b29 solid;
+    padding: 20px;
+    margin: auto;
 }

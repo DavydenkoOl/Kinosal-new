@@ -7,15 +7,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200;0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,200&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-<h1 style="color: #240e67">Кинчики</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
 <div id="div_body" >
+    <p style="margin-top: 40px">
+        <a asp-action="Create" style="width: 25% ; color: #FF7373; text-decoration: none;font-size:20px;font-style:italic; font-weight:800">Добавить фильм</a>
+    </p>
     @foreach (var item in Model)
     {
         <div id="div_film">
+            
             <div id="film_poster">
                 <img src="images/@Html.DisplayFor(modelItem => item.Poster)" style="width:250px; height:350px; border-radius: 20px" />
             </div>
